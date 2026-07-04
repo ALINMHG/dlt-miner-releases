@@ -1,6 +1,12 @@
 Dilithium Pool Miner — Linux (patched)
 ======================================
 
+Requirements
+------------
+- This ZIP includes a pre-built binary — you do NOT need Go installed to mine.
+- The miner is written in Go. Go is required only if you build from source
+  yourself (Go 1.21+ from https://go.dev/dl/).
+
 1. Edit mine-pool.sh:
    - MINER_ADDRESS = YOUR wallet (payout address)
    - POOL_HOST     = pool Stratum host:port
