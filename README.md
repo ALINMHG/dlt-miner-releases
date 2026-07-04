@@ -22,6 +22,35 @@ The miner is written in **Go** ([golang.org](https://go.dev/)).
 
 Do **not** use the unpatched official miner binary from upstream releases on MerkleRoot pools — it will not find valid blocks even with Go installed.
 
+### Install Go on Linux (only if building from source)
+
+Skip this if you use the pre-built `dilithium-miner` from the ZIP above.
+
+**Ubuntu / Debian (64-bit):**
+
+```bash
+# Download and install Go (check https://go.dev/dl/ for the latest version)
+wget https://go.dev/dl/go1.23.4.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.23.4.linux-amd64.tar.gz
+
+# Add Go to PATH (current shell + future logins)
+export PATH=$PATH:/usr/local/go/bin
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+
+# Verify
+go version
+```
+
+**Build the patched miner:**
+
+```bash
+git clone https://github.com/luccadimario/dilithiumcoin.git
+cd dilithiumcoin
+# Replace cmd/dilithium-miner/pool_worker.go with the patched version from this repo's source
+go build -o dilithium-miner ./cmd/dilithium-miner
+```
+
 ## Quick start
 
 Replace `POOL_HOST`, `YOUR_WALLET`, and thread count.
